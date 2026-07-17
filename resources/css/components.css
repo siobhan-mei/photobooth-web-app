@@ -1,0 +1,42 @@
+.main-bg {
+    background-color: var(--color-bg, #f8f7ef);
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+div{
+    font-family: var(--font-sans);
+}
+.card.logo-card {
+    width: 3rem;
+    height: 3rem;
+    margin-right:20px;
+    border-radius: 15px;
+    border-color: black;
+}
+.logo-size {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.btn.pink-button {
+    color: black;
+    background: var(--color-primary-btn, #ffe5eb);
+    border: 1px solid black;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.319);
+    border-radius: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.btn.pink-button:hover {
+    color: black;
+    background: var(--color-primary-btn, #ffe5eb);
+    border: 1px solid black;
+    box-shadow: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transform: translateY(4px);
+}
+

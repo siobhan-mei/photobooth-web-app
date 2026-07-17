@@ -1,0 +1,55 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './components.css';
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('@assets/fonts/Cardo-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Cardo';
+    src: url('@assets/fonts/Cardo-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Cardo';
+    src: url('@assets/fonts/Cardo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Buffalo';
+    src: url('@assets/fonts/Buffalo.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* fonts */
+    --font-sans: 'Cardo', ui-sans-serif, system-ui, sans-serif;
+    --font-cursive: 'Buffalo', cursive;
+
+    /* primitives */
+    --color-cream-50: #f8f7ef;
+    --color-ocean-100: #e6f6f8;
+    --color-ocean-200: #c8e6ea;
+    --color-pink-100: #ffe5eb;
+    --color-white: #ffffff;
+
+    /* semantic */
+    --color-bg: var(--color-cream-50);
+    --color-main-container: var(--color-ocean-100);
+    --color-secondary-container: var(--color-ocean-200);
+    --color-primary-btn: var(--color-pink-100);
+    --color-secondary-btn: var(--color-white);
+}
+
+body {
+    font-family: var(--font-sans);
+}
