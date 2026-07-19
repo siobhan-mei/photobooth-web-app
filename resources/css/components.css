@@ -7,19 +7,46 @@
     justify-content: center;
     overflow: hidden;
 }
-div{
-    font-family: var(--font-sans);
-}
-.card.logo-card {
+.card.main-logo-card {
     width: 3rem;
     height: 3rem;
     margin-right:20px;
     border-radius: 15px;
-    border-color: black;
+    border: 1px solid black;
 }
-.logo-size {
-    width: 1.8rem;
-    height: 1.8rem;
+.card.secondary-logo-card {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.logo-title {
+    font-family: "Cardo", serif;
+    font-weight: 700;
+    margin: 0;
+}
+.btn.white-button {
+    color: black;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary-btn, #ffffff);
+    border: 1px solid black;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.319);
+    border-radius: 15px;
+    padding: 0;
+}
+.btn.white-button:active {
+    color: black;
+    background: var(--color-secondary-btn, #ffffff);
+    border: 1px solid black;
+    box-shadow: none;
+    transform: translateY(4px);
 }
 .btn.pink-button {
     color: black;
@@ -30,7 +57,7 @@ div{
     padding-top: 8px;
     padding-bottom: 8px;
 }
-.btn.pink-button:hover {
+.btn.pink-button:active {
     color: black;
     background: var(--color-primary-btn, #ffe5eb);
     border: 1px solid black;
@@ -39,4 +66,3 @@ div{
     padding-bottom: 8px;
     transform: translateY(4px);
 }
-
