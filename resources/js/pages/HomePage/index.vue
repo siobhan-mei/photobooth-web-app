@@ -40,9 +40,9 @@ import NullIndicator from "@components/svgs/NullIndicator.vue";
 import FloatingPolaroids from "@components/FloatingPolaroids.vue";
 import logo from "@assets/images/logo.svg";
 import homeBg from "@assets/images/home-bg.svg";
-import homeDecor1 from "@assets/images/home-decor-1.svg";
-import homeDecor2 from "@assets/images/home-decor-2.svg";
-import homeDecor3 from "@assets/images/home-decor-3.svg";
+import homeElement1 from "@assets/images/home-element-1.svg";
+import homeElement2 from "@assets/images/home-element-2.svg";
+import homeElement3 from "@assets/images/home-element-3.svg";
 import clickSfx from "@assets/sfx/click.mp3";
 import { useSound } from "@composables/useSound";
 
@@ -62,9 +62,9 @@ export default {
             logo,
             homeBg,
             imageData: [
-                { src: homeDecor1, width: 370 },
-                { src: homeDecor2, width: 370, marginLeft: -130, marginBottom: -220 },
-                { src: homeDecor3, width: 370, marginLeft: -40 },
+                { src: homeElement1, width: 370 },
+                { src: homeElement2, width: 370, marginLeft: -130, marginBottom: -220 },
+                { src: homeElement3, width: 370, marginLeft: -40 },
             ],
         };
     },
