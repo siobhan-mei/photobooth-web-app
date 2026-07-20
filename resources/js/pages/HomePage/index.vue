@@ -54,7 +54,7 @@ export default {
         FloatingPolaroids,
     },
     setup() {
-        const { play: playClickSound } = useSound(clickSfx);
+        const { play: playClickSound } = useSound(clickSfx, 0.4);
         return { playClickSound };
     },
     data() {

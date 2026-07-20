@@ -1,5 +1,6 @@
-export function useSound(src) {
+export function useSound(src, volume = 1) {
     const audio = new Audio(src);
+    audio.volume = volume;
 
     function play() {
         audio.currentTime = 0;
