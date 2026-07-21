@@ -5,17 +5,24 @@
         </div>
         <div class="template-card-actions">
             <button class="btn pink-button" @click="$emit('snap')">
-                Snap Photo
+                <SnapPhoto style="margin-right: 4px"/> Snap Photo
             </button>
             <button class="btn pink-button" @click="$emit('upload')">
-                Upload Photo
+                <UploadPhoto style="margin-right: 1px"/> Upload Photo
             </button>
         </div>
     </div>
 </template>
 <script>
+import SnapPhoto from '@components/svgs/SnapPhoto.vue';
+import UploadPhoto from '@components/svgs/UploadPhoto.vue';
+
 export default {
     name: "TemplateCard",
+    components: {
+        SnapPhoto,
+        UploadPhoto,
+    },
     emits: ['snap', 'upload'],
 };
 </script>
