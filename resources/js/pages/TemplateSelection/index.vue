@@ -1,5 +1,13 @@
 <template>
     <div class="main-bg" style="flex-direction: column">
+    <input
+        ref="fileInput"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        class="d-none"
+        @change="onFileSelected"
+        @click="playClickSound"
+    />
         <SiteCredit>
             <template #start>
                 <router-link
@@ -85,6 +93,7 @@ import templateElement2 from "@assets/images/templateselection-element-2.svg";
 import templateElement3 from "@assets/images/templateselection-element-3.svg";
 import clickSfx from "@assets/sfx/click.mp3";
 import { useSound } from "@composables/useSound";
+import { useUploadPhoto } from "@composables/useUploadPhoto";
 
 export default {
     name: "TemplateSelection",
@@ -95,8 +104,9 @@ export default {
     },
     setup() {
         const { play: playClickSound } = useSound(clickSfx, 0.4);
+        const upload = useUploadPhoto();
         return {
-            playClickSound,
+            playClickSound, upload
         };
     },
     data() {
@@ -105,11 +115,19 @@ export default {
             templateElement1,
             templateElement2,
             templateElement3,
+            activeTemplateId: null,
         };
     },
     methods: {
         handleSnap(templateId) {},
-        handleUpload(templateId) {},
+        handleUpload(templateId) {
+            this.activeTemplateId = templateId;
+            this.upload.reset();
+            this.$refs.fileInput.click();
+        },
+        onFileSelected(event) {
+            this.upoad.handleInputChange(event);
+        },
     },
 };
 </script>
