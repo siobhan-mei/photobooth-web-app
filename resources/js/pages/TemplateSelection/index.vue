@@ -1,29 +1,6 @@
 <template>
     <div class="main-bg" style="flex-direction: column">
-    <input
-        ref="fileInput"
-        type="file"
-        accept="image/jpeg,image/png,image/webp"
-        class="d-none"
-        @change="onFileSelected"
-        @click="playClickSound"
-    />
-        <SiteCredit>
-            <template #start>
-                <router-link
-                    to="/"
-                    class="btn white-button"
-                    aria-label="Back to home"
-                    @click="playClickSound"
-                >
-                    <BackButton />
-                </router-link>
-                <div class="card secondary-logo-card">
-                    <img :src="logo" class="logo-size" alt="oceanbooth logo" />
-                </div>
-                <p class="logo-title">OceanBooth</p>
-            </template>
-        </SiteCredit>
+        <TopHeader variant="page" @back-click="playClickSound" />
         <div class="main-container">
             <p class="d-flex justify-content-center">Select Template</p>
 
@@ -80,14 +57,40 @@
                 alt="turtle"
             />
         </div>
+        <!--Image file picker-->
+        <input
+        ref="fileInput"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        class="d-none"
+        @change="onFileSelected"
+        @click="playClickSound"
+        />
+        <!--Request camera access modal-->
+        <ConfirmModal
+            :show="showPermissionModal"
+            title="Permission to use camera"
+            message="We need your permission to use your camera"
+            confirm-text="Allow"
+            @cancel="showPermissionModal= false"
+            @confirm="requestCameraAccess"
+        />
+        <!--Camera detection alert-->
+        <ConfirmModal
+            :show="showNoCameraModal"
+            title="No camera found"
+            message="Please connect a camera device"
+            confirm-text="Retry"
+            @cancel="showNoCameraModal = false"
+            @confirm="retryCameraDetection"
+        />
     </div>
 </template>
 
 <script>
-import SiteCredit from "@components/SiteCredit.vue";
+import TopHeader from "@components/TopHeader.vue";
 import TemplateCard from "@components/TemplateCard.vue";
-import BackButton from "@components/svgs/BackButton.vue";
-import logo from "@assets/images/logo.svg";
+import ConfirmModal from "@components/modals/ConfirmModal.vue";
 import templateElement1 from "@assets/images/templateselection-element-1.svg";
 import templateElement2 from "@assets/images/templateselection-element-2.svg";
 import templateElement3 from "@assets/images/templateselection-element-3.svg";
@@ -98,9 +101,9 @@ import { useUploadPhoto } from "@composables/useUploadPhoto";
 export default {
     name: "TemplateSelection",
     components: {
-        SiteCredit,
-        BackButton,
+        TopHeader,
         TemplateCard,
+        ConfirmModal,
     },
     setup() {
         const { play: playClickSound } = useSound(clickSfx, 0.4);
@@ -111,32 +114,38 @@ export default {
     },
     data() {
         return {
-            logo,
             templateElement1,
             templateElement2,
             templateElement3,
             activeTemplateId: null,
+            showPermissionModal: false,
+            showNoCameraModal: false,
         };
     },
     methods: {
-        handleSnap(templateId) {},
+        handleSnap(templateId) {
+            this.showPermissionModal = true;
+        },
         handleUpload(templateId) {
             this.activeTemplateId = templateId;
             this.upload.reset();
             this.$refs.fileInput.click();
         },
         onFileSelected(event) {
-            this.upoad.handleInputChange(event);
+            this.upload.handleInputChange(event);
+        },
+        requestCameraAccess() {
+            this.showPermissionModal = false;
+            this.showNoCameraModal = true;
+        },
+        retryCameraDetection() {
+            this.showNoCameraModal = false;
         },
     },
 };
 </script>
 
 <style scoped>
-.logo-size {
-    width: 1.4rem;
-    height: 1.4rem;
-}
 .main-container {
     width: 45%;
     min-height: 450px;

@@ -1,6 +1,6 @@
 <template>
     <div class="main-bg" style="flex-direction: column">
-        <SiteCredit />
+        <TopHeader />
         <div class="d-flex flex-column align-items-center">
             <div class="d-flex flex-row" style="margin-top: 30%">
                 <div
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import SiteCredit from "@components/SiteCredit.vue";
-import NullIndicator from "@components/svgs/NullIndicator.vue";
+import TopHeader from "@components/TopHeader.vue";
 import FloatingPolaroids from "@components/FloatingPolaroids.vue";
+import NullIndicator from "@components/svgs/NullIndicator.vue";
 import logo from "@assets/images/logo.svg";
 import homeBg from "@assets/images/home-bg.svg";
 import homeElement1 from "@assets/images/home-element-1.svg";
@@ -49,7 +49,7 @@ import { useSound } from "@composables/useSound";
 export default {
     name: "HomePage",
     components: {
-        SiteCredit,
+        TopHeader,
         NullIndicator,
         FloatingPolaroids,
     },
