@@ -67,8 +67,8 @@ export default {
 .confirm-modal-overlay {
     position: fixed;
     inset: 0;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;

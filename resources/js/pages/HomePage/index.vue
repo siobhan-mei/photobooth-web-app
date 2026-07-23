@@ -1,5 +1,5 @@
 <template>
-    <div class="main-bg" style="flex-direction: column">
+    <div class="main-bg">
         <TopHeader />
         <div class="d-flex flex-column align-items-center">
             <div class="d-flex flex-row" style="margin-top: 30%">

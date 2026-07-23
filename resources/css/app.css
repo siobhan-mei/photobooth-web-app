@@ -52,4 +52,5 @@
 
 body {
     font-family: var(--font-sans);
+    background-color: var(--color-bg, #f8f7ef);
 }

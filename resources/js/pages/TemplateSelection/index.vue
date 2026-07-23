@@ -1,5 +1,5 @@
 <template>
-    <div class="main-bg" style="flex-direction: column">
+    <div class="main-bg">
         <TopHeader variant="page" @back-click="playClickSound" />
         <div class="main-container">
             <p class="d-flex justify-content-center">Select Template</p>
@@ -75,7 +75,7 @@
             @cancel="showPermissionModal= false"
             @confirm="requestCameraAccess"
         />
-        <!--Camera detection alert-->
+        <!--No camera detection alert-->
         <ConfirmModal
             :show="showNoCameraModal"
             title="No camera found"
